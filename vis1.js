@@ -20,6 +20,10 @@ function init() {
         .attr("width", width)
         .attr("height", height);
 
+    //load country_id data
+    d3.csv("Vis1data/country_id.xlsx").then(function (data) {
+        
+    })
     // Load GeoJSON data
     d3.json("world.geojson").then(function(json) {
         // Draw countries
