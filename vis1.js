@@ -10,7 +10,7 @@ function init() {
         .translate([width / 2, height / 2])
         .scale(150);
 
-    // Create a path generator
+    // Path generator
     var path = d3.geoPath()
         .projection(projection);
 
