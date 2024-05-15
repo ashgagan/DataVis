@@ -14,12 +14,16 @@ function init() {
     var path = d3.geoPath()
         .projection(projection);
 
-    // Append SVG to the map container
+    // Append SVG to the html choropleth element
     var svg = d3.select("#choropleth")
         .append("svg")
         .attr("width", width)
         .attr("height", height);
 
+    //load country_id data
+    d3.csv("Vis1data/country_id.xlsx").then(function (data) {
+        
+    })
     // Load GeoJSON data
     d3.json("world.geojson").then(function(json) {
         // Draw countries
