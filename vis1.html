@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="description"    content="Data Visualisation"/>
-    <meta name="keywords"       content="HTML, CSS, D3"/>
-    <meta name="authors"         content="Henry Sutton, Gagandeep Singh"/>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Data Visualisation" />
+    <meta name="keywords" content="HTML, CSS, D3" />
+    <meta name="authors" content="Henry Sutton, Gagandeep Singh" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>COS30045 ASSIGNMENT 1</title>
     <!--Script sources the D3 Library(v7) to use-->
@@ -22,16 +23,18 @@
     <header>
         <h1>Data Visualization Assignment</h1>
         <nav class="topnav" id="myTopnav">
-            <a href="home.html" >Home</a>
+            <a href="home.html">Home</a>
             <a href="vis1.html" class="active">Visualization 1</a>
             <a href="vis2.html">Visualization 2</a>
         </nav>
     </header>
-    
+
     <p>VIS 1 PAGE</p>
-    <div id = "map">
-        <p id = "choropleth"></p>
+    <div id="map_container">
+        <button id="eu-button">Europe</button><button id="reset-button">Reset Zoom</button>
+        <div id="choropleth"></div>
     </div>
+
     <br>
 
     <footer style="color:grey">COS30045 Data Visualisation<br>
