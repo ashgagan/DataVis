@@ -29,7 +29,12 @@ function init() {
     var zoom = d3.zoom()
         .scaleExtent([1, 8])
         .translateExtent([[-10, -10], [960, 500]])
+        .filter(function(event) {
+            return event.type === 'wheel' ? event.ctrlKey : !event.button;
+        })
         .on("zoom", zoomed);
+        
+
 
     svg.call(zoom);
 

@@ -47,27 +47,27 @@ footer {
     text-align: center;
     color: #FFFFFF;
 }
-
-#map_container {
-    margin: auto;
-    width: 70%;
-    text-align: center;
-    border: 3px solid black;
-    border-radius: 5px; 
-    overflow: hidden;
-    position: relative;
+#container {
+    display: flex;
+    justify-content: space-between;
 }
-
-#info-box {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 200px;
+#clicked-box, #info-box, #map-container {
     border: 1px solid #ccc;
     padding: 10px;
     background: #fff;
 }
-
-#clicked-country {
-    font-weight: bold;
+#clicked-box, #info-box {
+    width: 200px;
+}
+#map-container {
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    flex-grow: 1;
+    position: relative;
+}
+#choropleth {
+    width: 100%;
+    height: 100%;
 }
