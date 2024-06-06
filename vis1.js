@@ -1,14 +1,14 @@
 function init() {
 
     // Set up width and height of the map
-    var width = 960;
+    var width = 1000;
     var height = 500;
 
     // Define a projection
     var projection = d3.geoEquirectangular()
         .center([0, 0])
         .translate([width / 2, height / 2])
-        .scale(150);
+        .scale(155);
 
     // Path generator
     var path = d3.geoPath()
@@ -28,7 +28,7 @@ function init() {
 
     var zoom = d3.zoom()
         .scaleExtent([1, 8])
-        .translateExtent([[-10, -10], [960, 500]])
+        .translateExtent([[-10, -90], [1010, 515]])
         .filter(function(event) {
             return event.type === 'wheel' ? event.ctrlKey : !event.button;
         })
