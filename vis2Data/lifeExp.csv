@@ -1,0 +1,245 @@
+Country,Year,Value
+Australia,AVG,82.45
+Czechia,AVG,78.53076923
+Denmark,AVG,80.78461538
+Finland,AVG,81.36153846
+France,AVG,82.47692308
+Germany,AVG,80.86923077
+Greece,AVG,81.14615385
+Hungary,AVG,75.66923077
+Ireland,AVG,81.7
+Japan,AVG,83.825
+Korea,AVG,82.1
+Norway,AVG,82.35384615
+Spain,AVG,83.1
+Switzerland,AVG,83.32307692
+Türkiye,AVG,77.05
+United States,AVG,78.4
+Israel,AVG,82.38461538
+Costa Rica,AVG,80.00769231
+Australia,2010,81.7
+Australia,2011,81.9
+Australia,2012,82
+Australia,2013,82.1
+Australia,2014,82.3
+Australia,2015,82.4
+Australia,2016,82.4
+Australia,2017,82.5
+Australia,2018,82.7
+Australia,2019,82.9
+Australia,2020,83.2
+Australia,2021,83.3
+Costa Rica,2010,79.1
+Costa Rica,2011,79.1
+Costa Rica,2012,79.4
+Costa Rica,2013,79.6
+Costa Rica,2014,79.7
+Costa Rica,2015,79.9
+Costa Rica,2016,80
+Costa Rica,2017,80.2
+Costa Rica,2018,80.3
+Costa Rica,2019,80.5
+Costa Rica,2020,80.6
+Costa Rica,2021,80.8
+Costa Rica,2022,80.9
+Czechia,2010,77.7
+Czechia,2011,78
+Czechia,2012,78.1
+Czechia,2013,78.3
+Czechia,2014,78.9
+Czechia,2015,78.7
+Czechia,2016,79.1
+Czechia,2017,79.1
+Czechia,2018,79.1
+Czechia,2019,79.3
+Czechia,2020,78.3
+Czechia,2021,77.2
+Czechia,2022,79.1
+Denmark,2010,79.3
+Denmark,2011,79.9
+Denmark,2012,80.2
+Denmark,2013,80.4
+Denmark,2014,80.7
+Denmark,2015,80.8
+Denmark,2016,80.9
+Denmark,2017,81.1
+Denmark,2018,81
+Denmark,2019,81.5
+Denmark,2020,81.6
+Denmark,2021,81.5
+Denmark,2022,81.3
+Finland,2010,80.2
+Finland,2011,80.6
+Finland,2012,80.7
+Finland,2013,81.1
+Finland,2014,81.3
+Finland,2015,81.6
+Finland,2016,81.5
+Finland,2017,81.7
+Finland,2018,81.8
+Finland,2019,82.1
+Finland,2020,82
+Finland,2021,81.9
+Finland,2022,81.2
+France,2010,81.9
+France,2011,82.3
+France,2012,82.1
+France,2013,82.4
+France,2014,82.9
+France,2015,82.4
+France,2016,82.7
+France,2017,82.7
+France,2018,82.8
+France,2019,83
+France,2020,82.3
+France,2021,82.4
+France,2022,82.3
+Germany,2010,80.5
+Germany,2011,80.6
+Germany,2012,80.7
+Germany,2013,80.6
+Germany,2014,81.2
+Germany,2015,80.7
+Germany,2016,81
+Germany,2017,81.1
+Germany,2018,81
+Germany,2019,81.3
+Germany,2020,81.1
+Germany,2021,80.8
+Germany,2022,80.7
+Greece,2010,80.6
+Greece,2011,80.8
+Greece,2012,80.7
+Greece,2013,81.4
+Greece,2014,81.5
+Greece,2015,81.1
+Greece,2016,81.5
+Greece,2017,81.4
+Greece,2018,81.9
+Greece,2019,81.7
+Greece,2020,81.4
+Greece,2021,80.2
+Greece,2022,80.7
+Hungary,2010,74.7
+Hungary,2011,75.1
+Hungary,2012,75.3
+Hungary,2013,75.8
+Hungary,2014,76
+Hungary,2015,75.7
+Hungary,2016,76.2
+Hungary,2017,76
+Hungary,2018,76.2
+Hungary,2019,76.5
+Hungary,2020,75.7
+Hungary,2021,74.3
+Hungary,2022,76.2
+Ireland,2010,80.8
+Ireland,2011,80.9
+Ireland,2012,80.9
+Ireland,2013,81
+Ireland,2014,81.4
+Ireland,2015,81.5
+Ireland,2016,81.7
+Ireland,2017,82.2
+Ireland,2018,82.2
+Ireland,2019,82.8
+Ireland,2020,82.6
+Ireland,2021,82.4
+Israel,2010,81.7
+Israel,2011,81.8
+Israel,2012,81.8
+Israel,2013,82.1
+Israel,2014,82.2
+Israel,2015,82.2
+Israel,2016,82.5
+Israel,2017,82.7
+Israel,2018,82.9
+Israel,2019,82.9
+Israel,2020,82.7
+Israel,2021,82.6
+Israel,2022,82.9
+Japan,2010,82.9
+Japan,2011,82.7
+Japan,2012,83.2
+Japan,2013,83.4
+Japan,2014,83.7
+Japan,2015,83.9
+Japan,2016,84.1
+Japan,2017,84.2
+Japan,2018,84.3
+Japan,2019,84.4
+Japan,2020,84.6
+Japan,2021,84.5
+Korea,2010,80.2
+Korea,2011,80.6
+Korea,2012,80.9
+Korea,2013,81.4
+Korea,2014,81.8
+Korea,2015,82.1
+Korea,2016,82.4
+Korea,2017,82.7
+Korea,2018,82.7
+Korea,2019,83.3
+Korea,2020,83.5
+Korea,2021,83.6
+Norway,2010,81.2
+Norway,2011,81.4
+Norway,2012,81.5
+Norway,2013,81.8
+Norway,2014,82.2
+Norway,2015,82.4
+Norway,2016,82.5
+Norway,2017,82.7
+Norway,2018,82.8
+Norway,2019,83
+Norway,2020,83.3
+Norway,2021,83.2
+Norway,2022,82.6
+Spain,2010,82.4
+Spain,2011,82.6
+Spain,2012,82.5
+Spain,2013,83.2
+Spain,2014,83.3
+Spain,2015,83
+Spain,2016,83.5
+Spain,2017,83.4
+Spain,2018,83.5
+Spain,2019,84
+Spain,2020,82.4
+Spain,2021,83.3
+Spain,2022,83.2
+Switzerland,2010,82.7
+Switzerland,2011,82.8
+Switzerland,2012,82.8
+Switzerland,2013,82.9
+Switzerland,2014,83.3
+Switzerland,2015,83
+Switzerland,2016,83.7
+Switzerland,2017,83.7
+Switzerland,2018,83.8
+Switzerland,2019,84
+Switzerland,2020,83.1
+Switzerland,2021,83.9
+Switzerland,2022,83.5
+Türkiye,2010,74.3
+Türkiye,2011,74.6
+Türkiye,2012,74.6
+Türkiye,2013,78
+Türkiye,2014,78
+Türkiye,2015,78
+Türkiye,2016,78
+Türkiye,2017,78.1
+Türkiye,2018,78.3
+Türkiye,2019,78.6
+United States,2010,78.7
+United States,2011,78.7
+United States,2012,78.8
+United States,2013,78.8
+United States,2014,78.9
+United States,2015,78.7
+United States,2016,78.7
+United States,2017,78.6
+United States,2018,78.7
+United States,2019,78.8
+United States,2020,77
+United States,2021,76.4

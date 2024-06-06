@@ -16,9 +16,51 @@
     -data vis 1
     -data vis 2
     -->
-    <script src="vis2.js"></script>
+    <script src="radarChart.js"></script>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .dropdowns {
+            margin-bottom: 20px;
+        }
+        .dropdowns select {
+            margin: 0 10px;
+        }
+    </style>
+
+    <style>
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            width: 120px;
+            height: auto;
+            padding: 5px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .section {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        max-width: 800px;
+        }
+    </style>
 
 </head>
 
@@ -33,7 +75,44 @@
         </nav>
     </header>
     <p>VIS 2 PAGE</p>
-    <p id = "chart"></p>
+
+    <div class="section">
+        <h2>How to Use the Visualization</h2>
+        <p>Select a country and a year from the dropdown menus to update the radar chart. The chart will display the sugar supply, tobacco consumption, and total fat supply for the selected country and year. Hover over the chart to see the exact values along with the life expectancy for the selected parameters.</p>
+    </div>
+
+    <div class="chart-container">
+        <div class="dropdowns">
+            <label for="country">Country:</label>
+            <select id="country"></select>
+            <label for="year">Year:</label>
+            <select id="year"></select>
+        </div>
+        <div id="chart"></div>
+    </div>
+
+
+    <div class="section">
+        <h2>Conclusions from the Visualization</h2>
+        <p id="conclusion">This section will be updated based on the selected data to provide insights and conclusions.</p>
+    </div>
+
+    <div class="section">
+        <h2>General Conclusions on Health Factors and Life Expectancy</h2>
+
+
+        <h3>Examples</h3>
+        <p>Here are some specific examples from the data that illustrate the dependency of life expectancy on the three health factors:</p>
+        <ul>
+            <li><strong>Australia (2010)</strong>: Life Expectancy: 81.70 years, Sugar Supply: 131.0, Tobacco Consumption: 1009.0, Total Fat Supply: 151.3</li>
+            <li><strong>Denmark (2010)</strong>: Life Expectancy: 79.00 years, Sugar Supply: 120.0, Tobacco Consumption: 1100.0, Total Fat Supply: 140.0</li>
+            <li><strong>France (2010)</strong>: Life Expectancy: 81.10 years, Sugar Supply: 110.0, Tobacco Consumption: 800.0, Total Fat Supply: 130.0</li>
+            <li><strong>Finland (2010)</strong>: Life Expectancy: 80.00 years, Sugar Supply: 140.0, Tobacco Consumption: 950.0, Total Fat Supply: 145.0</li>
+            <li><strong>Czechia (2010)</strong>: Life Expectancy: 76.80 years, Sugar Supply: 160.0, Tobacco Consumption: 1150.0, Total Fat Supply: 160.0</li>
+        </ul>
+
+        <p>These examples demonstrate that while there are weak negative correlations between these health factors and life expectancy, the relationships are not strong. This suggests that other factors, such as healthcare quality, genetic factors, environmental conditions, socioeconomic status, and lifestyle choices, may also play significant roles in determining life expectancy.</p>
+    </div>
 
     <br>
 
