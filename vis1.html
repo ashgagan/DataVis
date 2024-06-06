@@ -31,17 +31,27 @@
 
     <p>VIS 1 PAGE</p>
     <div id="container">
+           
         <div id="clicked-box">
+            <div class="flag-container" id="flag2-container"></div>
             <div id="clicked-country">Click on a country to see its data here</div>
         </div>
         <div id="info-box">
+            <div class="flag-container" id="flag1-container"></div>
             <div id="hovered-country">Hover over a country to see its data</div>
         </div>
         <div id="map-container">
             <div id ="buttons1">
             <button class="button-79" role="button" id="eu-button">Europe</button>
             <button class="button-79" role="button" id="reset-button">Reset Zoom</button>
+            <select class="selector" id="dataset-select">
+                <option value="life_expectancy">Life Expectancy</option>
+                <option value="population">Population</option>
+                <option value="gdp">GDP</option>
+                <option value="deaths">Deaths</option>
+            </select> 
             </div>
+                
             <div id="choropleth"></div>
         </div>
     </div>
