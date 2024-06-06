@@ -36,16 +36,10 @@ function init() {
     var map = svg.append("g")
         .attr("id", "map")
 
+    var infoBox = d3.select("#info-box");
+    var hoveredCountry = d3.select("#hovered-country");
+    var clickedCountry = d3.select("#clicked-country");
 
-    d3.select('#reset')
-        .on("click", function () {
-            map.transition()
-                .call(zoom.transform, d3.zoomIdentity
-                    .translate(w / 2, h / 2)
-                    .scale(150)
-                    .translate()
-                )
-        })
     //load country_id data
     d3.csv("Vis1Data/data1.csv").then(function (data) {
 
@@ -75,12 +69,19 @@ function init() {
                     return value ? color(value) : "lightgrey";
                 })
                 .on("mouseover", function (event, d) {
+                    var countryData = dataMap[d.id];
+                    hoveredCountry.text("Country: " + d.properties.name + ", GDP/Capita: " + (countryData ? countryData : "N/A"));
                     d3.select(this).style("fill", "red"); // Change color on hover
                 })
                 .on("mouseout", function (event, d) {
                     var value = dataMap[d.id];
                     var fillColor = value ? color(value) : "lightgrey";
                     d3.select(this).style("fill", fillColor); // Revert color on mouseout
+                    hoveredCountry.text("Hover over a country to see its data");
+                })
+                .on("click", function (event, d) {
+                    var countryData = dataMap[d.id];
+                    clickedCountry.text("Country: " + d.properties.name + ", GDP/Capita: " + (countryData ? countryData : "N/A"));
                 });
         });
     })
