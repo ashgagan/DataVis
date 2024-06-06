@@ -51,7 +51,7 @@ function init() {
         var dataMap = {};
         data.forEach(function (d) {
             if (d.year === "2020") {
-                dataMap[d["country_id"]] = +d["GDP/Capita(US$)"];
+                dataMap[d["country_id"]] = +d["GDP"];
             }
         });
 

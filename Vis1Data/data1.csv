@@ -1,4 +1,4 @@
-country,country_id,year,population (thousands of persons),GDP/Capita(US$),Life Expectancy,Life expectancy (m),Life expectancy (f),Deaths,Deaths (m),Deaths (f)
+country,country_id,year,population,GDP,Life_Expectancy,Life_expectancy(m),Life_expectancy(f),Deaths,Deaths(m),Deaths(f)
 Australia,AUS,2010,22031.8,42816.5,81.7,79.5,84,143473,73484,69989
 Austria,AUT,2010,8363.4,42007.3,80.7,77.8,83.5,77199,36692,40507
 Belgium,BEL,2010,10895.6,39838,80.3,77.5,83,105152,52066,53086
