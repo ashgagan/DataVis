@@ -92,7 +92,11 @@ function init() {
                     const countryCode = d.id;
                     const countryInfo = countryData[countryCode];
                     const twoLetterCode = countryCodeMapping[countryCode];
-
+                    d3.select(this).style("fill", function () {
+                        var currentColor = d3.color(d3.select(this).style("fill"));
+                        d.ogColor = currentColor;
+                        return currentColor.darker(1);
+                    });
                     if (countryInfo) {
                         let content = `<div class="countryName"><strong>${countryInfo.name}</strong></div><br/><br>`;
                         [2010, 2015, 2020].forEach(year => {
@@ -115,6 +119,7 @@ function init() {
                     }
                 })
                 .on("mouseout", function (event, d) {
+                    d3.select(this).style("fill", d.ogColor);
                     d3.select("#flag1-container").html(``);
                     hoveredCountry.html(`Hover over a country to see its data`);
                 })
@@ -144,7 +149,22 @@ function init() {
                         clickedCountry.html(`<div class="countryName"><strong>${d.properties.name}</strong></div><br/>No data available`);
                     }
                 });
-            function updateMapColors(selectedDataset) {
+            function updateMapColors(selectedDataset, selectedYear) {
+                var dataMap = {};
+                data.forEach(function (d) {
+                    if (d.year === selectedYear.toString()) {
+                        dataMap[d["country_id"]] = +d[selectedDataset];
+                    }
+                });
+                var color = d3.scaleSequential(MAPcolor)
+                    .domain([d3.min(Object.values(dataMap)), d3.max(Object.values(dataMap))]);
+                map.selectAll("path")
+                    .style("fill", function (d) {
+                        var value = dataMap[d.id];  // Using 'id' as the country code in GeoJSON
+                        return value ? color(value) : "lightgrey";
+                    });
+            }
+            function asdfupdateMapColors(selectedDataset) {
 
                 if (selectedDataset === "life_expectancy") {
                     var dataMap = {};
@@ -152,6 +172,7 @@ function init() {
                         if (d.year === "2020") {
                             dataMap[d["country_id"]] = +d["life_expectancy"];
                         };
+
                     })
                     var color = d3.scaleSequential(MAPcolor)
                         .domain([d3.min(Object.values(dataMap)), d3.max(Object.values(dataMap))]);
@@ -209,9 +230,10 @@ function init() {
             }
 
             // Event listener for dataset select change
-            d3.select("#dataset-select").on("change", function () {
-                var selectedDataset = d3.select(this).property("value");
-                updateMapColors(selectedDataset);
+            d3.selectAll("#dataset-select, #year-select").on("change", function () {
+                var selectedDataset = d3.select("#dataset-select").property("value");
+                var selectedYear = d3.select("#year-select").property("value");
+                updateMapColors(selectedDataset, selectedYear);
             });
         });
     })

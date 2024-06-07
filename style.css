@@ -48,13 +48,23 @@ footer {
     color: #FFFFFF;
 }
 
+.contentBOX {
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1.5px solid #2C3E50;
+    border-radius: 8px;
+    max-width: 800px;
+    text-align: center;
+}
+
 #container {
     display: flex;
     justify-content: space-between;
 }
 
 #clicked-box, #info-box, #map-container {
-    border: 1px solid #ccc;
+    border: 1.5px solid #2C3E50;
     padding: 10px;
     background: #fff;
 }
@@ -160,8 +170,13 @@ footer {
     text-align: center;
 }
 
-.selector {
+.selector1 {
     position: absolute;
-    top: 20px;
+    top: 15px;
+    right: 100px;
+}
+.selector2 {
+    position: absolute;
+    top: 15px;
     right: 30px;
 }
