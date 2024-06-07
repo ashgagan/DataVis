@@ -122,8 +122,7 @@ function init() {
 
             // Map life expectancy to color using d3.interpolateBlues
             const colorScaleBar = d3.scaleSequential(d3.interpolateBlues)
-                    .domain([minLifeExpectancy, maxLifeExpectancy]); // Define color scale based on min and max life expectancy
-
+                .domain([minLifeExpectancy, maxLifeExpectancy]); // Define color scale based on min and max life expectancy
 
             const gradient = defs.append("linearGradient")
                 .attr("id", "color-gradient")
@@ -166,8 +165,6 @@ function init() {
                 .attr("text-anchor", "end")
                 .text(maxLifeExpectancy.toFixed(2));
 
-
-
             // Function to update the chart
             function updateChart() {
                 const selectedCountry = countrySelect.node().value;
@@ -200,16 +197,15 @@ function init() {
                 conclusionElement.innerHTML = `
                     The data for <strong>${selectedCountry}</strong> in the year <strong>${selectedYear}</strong> shows the following values:
                     <ul>
-                        <li>Sugar Supply: ${chartData.find(d => d.axis === "Sugar supply").value}</li>
-                        <li>Tobacco Consumption: ${chartData.find(d => d.axis === "Tobacco consumption").value}</li>
-                        <li>Total Fat Supply: ${chartData.find(d => d.axis === "Total fat supply").value}</li>
+                        <li>Sugar Supply: ${chartData.find(d => d.axis === "Sugar supply").value} kilos per capita per year</li>
+                        <li>Tobacco Consumption: ${chartData.find(d => d.axis === "Tobacco consumption").value} grams per capita</li>
+                        <li>Total Fat Supply: ${chartData.find(d => d.axis === "Total fat supply").value} grams per capita per day</li>
                     </ul>
-                    The life expectancy for this year and country is <strong>${lifeExpectancy.toFixed(2)}</strong>.
+                    The life expectancy for this year and country is <strong>${lifeExpectancy.toFixed(2)} years</strong>.
                 `;
 
                 drawRadarChart(chartData, lifeExpectancy);
             }
-
 
             // Function to draw the radar chart
             function drawRadarChart(data, lifeExpectancy) {
@@ -242,10 +238,10 @@ function init() {
                     .on("mouseover", function(event, d) {
                         tooltip.transition().duration(200).style("opacity", .9);
                         tooltip.html(`
-                            <strong>Life Expectancy:</strong> ${lifeExpectancy.toFixed(2)}<br/>
-                            <strong>Total Fat Supply:</strong> ${data[2].value}<br/>
-                            <strong>Tobacco Consumption:</strong> ${data[1].value}<br/>
-                            <strong>Sugar Supply:</strong> ${data[0].value}
+                            <strong>Life Expectancy:</strong> ${lifeExpectancy.toFixed(2)} years<br/>
+                            <strong>Total Fat Supply:</strong> ${data[2].value} grams per capita per day<br/>
+                            <strong>Tobacco Consumption:</strong> ${data[1].value} grams per capita<br/>
+                            <strong>Sugar Supply:</strong> ${data[0].value} kilos per capita per year
                         `)
                         .style("left", (event.pageX) + "px")
                         .style("top", (event.pageY - 28) + "px");
@@ -264,7 +260,6 @@ function init() {
                     .style("fill", "none");
             }
 
-
             // Event listeners for dropdowns
             countrySelect.on("change", updateChart);
             yearSelect.on("change", updateChart);
@@ -274,4 +269,5 @@ function init() {
         });
     });
 }
+
 window.onload = init;
