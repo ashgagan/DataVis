@@ -7,52 +7,72 @@
     <meta name="keywords" content="HTML, CSS, D3"/>
     <meta name="authors" content="Henry Sutton, Gagandeep Singh"/>
 
-    <title>COS30045 ASSIGNMENT 1</title>
+    <title>COS30045 Data Visualization Assignment</title>
     <!--Script sources the D3 Library(v7) to use-->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <!--script for js-->
-    <!--Add scripts for each function:
-    -menu bar
-    -data vis 1
-    -data vis 2
-    -->
-    <script src="scripts.js"></script>
-
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
     <header>
-        <h1>Data Visualization Assignment</h1>
-        <nav class="topnav" id="myTopnav">
-            <a href="home.html" class="active">Home</a>
-            <a href="vis1.html">Visualization 1</a>
-            <a href="vis2.html">Visualization 2</a>
-        </nav>
+        <div class="header-content">
+            <h1>Global Health Insights</h1>
+            <nav class="topnav" id="myTopnav">
+                <a href="home.html" class="active">Home</a>
+                <a href="vis1.html">Visualization 1</a>
+                <a href="vis2.html">Visualization 2</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="intro">
-        <p><strong>Home Page Introduction</strong></br></br>
-            Welcome to our Data Visualization Assignment for COS30045! This project, crafted by Henry Sutton and Gagandeep Singh, showcases the power of data visualization in understanding complex datasets. We have developed two interactive visualizations to explore and analyze various health-related data. These visualizations aim to provide insights into how different factors, such as sugar supply, tobacco consumption, and fat supply, correlate with life expectancy across different countries and years. Use the navigation menu above to explore each visualization, and immerse yourself in the data-driven stories they unveil.</p>  
-    </div>
-    <div class="intro-container">
-        <div class="intro2">
-            <p><strong>Introduction to Visualization 1</strong></br></br>
-                Our first data visualization presents a comprehensive overview of global life expectancy trends over the years. Using an intuitive interface, you can select different countries and years to examine the life expectancy variations. The visualization employs dynamic charts and maps to highlight patterns and anomalies in the data. This allows you to explore how life expectancy has evolved across different regions and what factors might be influencing these changes. Dive into this visualization to uncover the hidden stories within the life expectancy data, and gain a deeper understanding of global health trends.
-            </p>
-        </div>
-        <div class="intro2">
-            <p><strong>Introduction to Visualization 2</strong></br></br>
-                Our second data visualization delves into the intricate relationships between various health factors and life expectancy. This interactive radar chart allows you to select a country and year to examine the sugar supply, tobacco consumption, and total fat supply for that specific context. By visualizing these factors simultaneously, you can easily compare their relative values and understand how they might influence life expectancy. Hover over the chart to reveal detailed data points and insights. This visualization offers a unique perspective on how different dietary and lifestyle choices can impact health outcomes, providing valuable context for public health discussions. Explore the data to discover patterns and draw your own conclusions about the interplay between these crucial health metrics and life expectancy.
-            </p>
-        </div>
-    </div>
-    
 
-    <footer style="color:grey">COS30045 Data Visualisation<br>
-        Henry Sutton | Gagandeep Singh</footer>
+    <main>
+        <section class="intro-section">
+            <h2>Overview</h2>
+            <p>Analyzing global health disparities and life expectancy factors is crucial for informing policy decisions, effective resource allocation, and raising awareness. Our visualizations help users, including health officials, researchers, and the public, to identify and understand these disparities across countries, highlighting regions with varying life expectancies and potential influencing factors.</p>
+        </section>
+
+
+        <section class="purpose-section">
+            <h2>Visualization Purpose</h2>
+            <p>The research questions that we aim to answer with our data visualizations are:</p>
+            <ul>
+                <li>What are the variations in life expectancy across different OECD countries?</li>
+                <li>Do economic/demographic factors impact life expectancy?</li>
+                <li>How do factors such as tobacco consumption, fat intake, and sugar consumption impact life expectancy?</li>
+                <li>Which countries exhibit the highest and lowest life expectancy, and what are the potential factors contributing to these differences?</li>
+            </ul>
+            <p>The potential benefits of the completed visualizations include:</p>
+            <ul>
+                <li>Providing insights into global health inequalities.</li>
+                <li>Facilitating evidence-based policymaking to improve public health outcomes.</li>
+                <li>Educating the public about lifestyle choices and their impact on life expectancy.</li>
+                <li>Identifying regions or countries that may require targeted interventions to improve health outcomes.</li>
+            </ul>
+        </section>
+
+        <section class="navigation-section">
+            <h2>Explore Visualizations</h2>
+            <div class="nav-cards">
+                <div class="nav-card">
+                    <h3>Visualization 1</h3>
+                    <p>Analyze global life expectancy trends over the years with dynamic charts and maps.</p>
+                    <a href="vis1.html" class="button">View Visualization 1</a>
+                </div>
+                <div class="nav-card">
+                    <h3>Visualization 2</h3>
+                    <p>Explore the relationships between health factors and life expectancy using interactive radar charts.</p>
+                    <a href="vis2.html" class="button">View Visualization 2</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>COS30045 Data Visualisation | Henry Sutton | Gagandeep Singh</p>
+    </footer>
+
+
 </body>
 
 </html>
