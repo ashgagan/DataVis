@@ -149,6 +149,7 @@ function init() {
                         clickedCountry.html(`<div class="countryName"><strong>${d.properties.name}</strong></div><br/>No data available`);
                     }
                 });
+            //function to update choropleth heatmap if dataset or year is changed
             function updateMapColors(selectedDataset, selectedYear) {
                 var dataMap = {};
                 data.forEach(function (d) {
@@ -164,72 +165,8 @@ function init() {
                         return value ? color(value) : "lightgrey";
                     });
             }
-            function asdfupdateMapColors(selectedDataset) {
 
-                if (selectedDataset === "life_expectancy") {
-                    var dataMap = {};
-                    data.forEach(function (d) {
-                        if (d.year === "2020") {
-                            dataMap[d["country_id"]] = +d["life_expectancy"];
-                        };
-
-                    })
-                    var color = d3.scaleSequential(MAPcolor)
-                        .domain([d3.min(Object.values(dataMap)), d3.max(Object.values(dataMap))]);
-                    map.selectAll("path")
-                        .style("fill", function (d) {
-                            var value = dataMap[d.id];  // Using 'id' as the country code in GeoJSON
-                            return value ? color(value) : "lightgrey";
-                        })
-                }
-                if (selectedDataset === "population") {
-                    var dataMap = {};
-                    data.forEach(function (d) {
-                        if (d.year === "2020") {
-                            dataMap[d["country_id"]] = +d["population"];
-                        };
-                    })
-                    var color = d3.scaleSequential(MAPcolor)
-                        .domain([d3.min(Object.values(dataMap)), d3.max(Object.values(dataMap))]);
-                    map.selectAll("path")
-                        .style("fill", function (d) {
-                            var value = dataMap[d.id];  // Using 'id' as the country code in GeoJSON
-                            return value ? color(value) : "lightgrey";
-                        })
-                }
-                if (selectedDataset === "gdp") {
-                    var dataMap = {};
-                    data.forEach(function (d) {
-                        if (d.year === "2020") {
-                            dataMap[d["country_id"]] = +d["gdp"];
-                        };
-                    })
-                    var color = d3.scaleSequential(MAPcolor)
-                        .domain([d3.min(Object.values(dataMap)), d3.max(Object.values(dataMap))]);
-                    map.selectAll("path")
-                        .style("fill", function (d) {
-                            var value = dataMap[d.id];  // Using 'id' as the country code in GeoJSON
-                            return value ? color(value) : "lightgrey";
-                        })
-                }
-                if (selectedDataset === "deaths") {
-                    var dataMap = {};
-                    data.forEach(function (d) {
-                        if (d.year === "2020") {
-                            dataMap[d["country_id"]] = +d["deaths"];
-                        };
-                    })
-                    var color = d3.scaleSequential(MAPcolor)
-                        .domain([d3.min(Object.values(dataMap)), d3.max(Object.values(dataMap))]);
-                    map.selectAll("path")
-                        .style("fill", function (d) {
-                            var value = dataMap[d.id];  // Using 'id' as the country code in GeoJSON
-                            return value ? color(value) : "lightgrey";
-                        })
-                }
-            }
-
-            // Event listener for dataset select change
+            // Event listener for dataset and year select change
             d3.selectAll("#dataset-select, #year-select").on("change", function () {
                 var selectedDataset = d3.select("#dataset-select").property("value");
                 var selectedYear = d3.select("#year-select").property("value");
@@ -240,6 +177,7 @@ function init() {
 
     d3.select("#reset-button")
         .on("click", function () {
+            // Apply the zoom transformation to the initial values
             svg.transition().duration(750).call(
                 zoom.transform,
                 d3.zoomIdentity,
@@ -267,7 +205,7 @@ function init() {
         });
 
 
-
+    //AI was used to generate this list to save time from doing it manually.
     const countryCodeMapping = {
         "AFG": "af",
         "ALB": "al",
