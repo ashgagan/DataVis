@@ -30,18 +30,37 @@
     </header>
 
     <p>VIS 1 PAGE</p>
+    <div class="contentBOX">
+        <h2>How to Use the Visualization</h2>
+        <p>Pinch to Zoom in/out. Hold left click and drag to pan the map. Click the 'Reset Zoom' button to reset the map. 'Europe' button zooms to Europe for easier interaction. </br>Hover over a country to see more detailed information. Select a country with 'left click' to allow for easy comparison of countries data. </br>Select a dataset and year from the drop down menu on the right to display that data on the choropleth.</br>This visualisation only includes OECD countries. Countries coloured grey are either non-OECD countries of have no data for the selected year.</p>
+    </div>
     <div id="container">
+           
         <div id="clicked-box">
+            <div class="flag-container" id="flag2-container"></div>
             <div id="clicked-country">Click on a country to see its data here</div>
         </div>
         <div id="info-box">
+            <div class="flag-container" id="flag1-container"></div>
             <div id="hovered-country">Hover over a country to see its data</div>
         </div>
         <div id="map-container">
             <div id ="buttons1">
             <button class="button-79" role="button" id="eu-button">Europe</button>
             <button class="button-79" role="button" id="reset-button">Reset Zoom</button>
+            <select class="selector1" id="dataset-select">
+                <option value="life_expectancy">Life Expectancy</option>
+                <option value="population">Population</option>
+                <option value="gdp">GDP</option>
+                <option value="deaths">Deaths</option>
+            </select> 
+            <select class="selector2" id="year-select">
+                <option value="2010">2010</option>
+                <option value="2015">2015</option>
+                <option value="2020">2020</option>
+            </select> 
             </div>
+                
             <div id="choropleth"></div>
         </div>
     </div>
