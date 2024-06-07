@@ -20,12 +20,13 @@ function init() {
         .attr("width", width)
         .attr("height", height);
 
+    // handles zoom and drag events
     var zoomed = function (event) {
-
         var transform = event.transform;
         map.attr("transform", transform);
     };
 
+    // zoom function
     var zoom = d3.zoom()
         .scaleExtent([1, 8])
         .translateExtent([[-10, -90], [1010, 515]])
@@ -34,23 +35,25 @@ function init() {
         })
         .on("zoom", zoomed);
 
-
-
     svg.call(zoom);
 
     var map = svg.append("g")
         .attr("id", "map")
 
+    //bind info boxes
     var hoveredCountry = d3.select("#hovered-country");
     var clickedCountry = d3.select("#clicked-country");
 
+    //set color scheme for choropleth
     var MAPcolor = d3.scaleQuantize()
         .range(["rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)", "rgb(33,113,181)", "rgb(8,69,148)"]);
 
-    //load country_id data
+    //load data from csv file 'data1.csv'
     d3.csv("Vis1Data/data1.csv").then(function (data) {
         const countryData = {};
+        // dataMap variable used for creating colour domain based on the life expectancy of the country being drawn.
         var dataMap = {};
+        //loop to create country data for each piece of data. All linked via 3 letter country code.
         data.forEach(function (d) {
             const country = d['country'];
             const countryCode = d['country_id'];
@@ -73,6 +76,7 @@ function init() {
         // Load GeoJSON data
         d3.json("world.geojson").then(function (json) {
 
+            //set colour scheme
             var color = d3.scaleSequential(MAPcolor)
                 .domain([d3.min(Object.values(dataMap)), d3.max(Object.values(dataMap))]);
 
@@ -88,15 +92,20 @@ function init() {
                     var value = dataMap[d.id];  // Using 'id' as the country code in GeoJSON
                     return value ? color(value) : "lightgrey";
                 })
+                //hover functionality
                 .on("mouseover", function (event, d) {
+                    //set variables based on what country is being hovered
                     const countryCode = d.id;
                     const countryInfo = countryData[countryCode];
                     const twoLetterCode = countryCodeMapping[countryCode];
+                    //darkens hovered country colour
                     d3.select(this).style("fill", function () {
                         var currentColor = d3.color(d3.select(this).style("fill"));
+                        //define current color so it can be reverted when unhovered
                         d.ogColor = currentColor;
                         return currentColor.darker(1);
                     });
+                    //if there is OECD data on the country being hovered, set the html content of 'hoveredCountry' to the data
                     if (countryInfo) {
                         let content = `<div class="countryName"><strong>${countryInfo.name}</strong></div><br/><br>`;
                         [2010, 2015, 2020].forEach(year => {
@@ -109,25 +118,33 @@ function init() {
                                 Deaths: ${info.deaths}<br/><br/>`;
                             }
                         });
+                        //flag path based on mapped 2 letter country code
                         const flagImagePath = `Vis1Data/flags/${twoLetterCode}.png`;
+                        //display country flag and data
                         d3.select("#flag1-container").html(`<img src="${flagImagePath}" alt="${countryInfo.name} flag">`);
                         hoveredCountry.html(content);
                     } else {
+                        //if there is no OECD data, still display the country flag, but with message 'No data available' instead of data
                         const flagImagePath = `Vis1Data/flags/${twoLetterCode}.png`;
                         d3.select("#flag1-container").html(`<img src="${flagImagePath}">`);
                         hoveredCountry.html(`<div class="countryName"><strong>${d.properties.name}</strong></div><br/>No data available`);
                     }
                 })
+                //event for when country stops being hovered
                 .on("mouseout", function (event, d) {
+                    //sets colour of country to what it was before being darkened when hovered
                     d3.select(this).style("fill", d.ogColor);
                     d3.select("#flag1-container").html(``);
+                    //set 'hoveredCountry' html back to instructional message
                     hoveredCountry.html(`Hover over a country to see its data`);
                 })
+                //click event for when a country is selected
                 .on("click", function (event, d) {
+                    //get info of current country
                     const countryCode = d.id;
                     const countryInfo = countryData[countryCode];
                     const twoLetterCode = countryCodeMapping[countryCode];
-
+                    //if there is OECD data on the country being clicked, set the html content of 'clickedCountry' to the data
                     if (countryInfo) {
                         let content = `<div class="countryName"><strong>${countryInfo.name}</strong></div><br/><br>`;
                         [2010, 2015, 2020].forEach(year => {
@@ -140,10 +157,12 @@ function init() {
                                 Deaths: ${info.deaths}<br/><br/>`;
                             }
                         });
+                        //flag display
                         const flagImagePath = `Vis1Data/flags/${twoLetterCode}.png`;
                         d3.select("#flag2-container").html(`<img src="${flagImagePath}" alt="${countryInfo.name} flag">`);
                         clickedCountry.html(content);
                     } else {
+                        //if there is no OECD data, still display the country flag, but with message 'No data available' instead of data
                         const flagImagePath = `Vis1Data/flags/${twoLetterCode}.png`;
                         d3.select("#flag2-container").html(`<img src="${flagImagePath}">`);
                         clickedCountry.html(`<div class="countryName"><strong>${d.properties.name}</strong></div><br/>No data available`);
@@ -151,22 +170,25 @@ function init() {
                 });
             //function to update choropleth heatmap if dataset or year is changed
             function updateMapColors(selectedDataset, selectedYear) {
+                //create new dataMap based on newly selected dataset or year
                 var dataMap = {};
                 data.forEach(function (d) {
                     if (d.year === selectedYear.toString()) {
                         dataMap[d["country_id"]] = +d[selectedDataset];
                     }
                 });
+                //update colour scheme based on min/max values of new selection
                 var color = d3.scaleSequential(MAPcolor)
                     .domain([d3.min(Object.values(dataMap)), d3.max(Object.values(dataMap))]);
+                //fill countrys based on new selection
                 map.selectAll("path")
                     .style("fill", function (d) {
-                        var value = dataMap[d.id];  // Using 'id' as the country code in GeoJSON
+                        var value = dataMap[d.id];
                         return value ? color(value) : "lightgrey";
                     });
             }
 
-            // Event listener for dataset and year select change
+            //event listener for dataset or year select change
             d3.selectAll("#dataset-select, #year-select").on("change", function () {
                 var selectedDataset = d3.select("#dataset-select").property("value");
                 var selectedYear = d3.select("#year-select").property("value");
@@ -174,38 +196,35 @@ function init() {
             });
         });
     })
-
+    //event listener for is reset button is clicked.
     d3.select("#reset-button")
+        //if clicked, transforms the map to its original posistion
         .on("click", function () {
-            // Apply the zoom transformation to the initial values
             svg.transition().duration(750).call(
                 zoom.transform,
                 d3.zoomIdentity,
                 d3.zoomTransform(svg.node()).invert([width / 2, height / 2])
             );
         });
-
+    //event listener for is EU zoom button is clicked.
     d3.select("#eu-button")
         .on("click", function () {
-            // Coordinates of Europe
+            //coordinates of Europe
             var targetCoordinates = [10, 50];
-
-            // Convert coordinates to pixel values
+            //convert coordinates to pixel values
             var targetPixel = projection(targetCoordinates);
-
-            // Calculate the new scale and translate values
+            //calculate the new scale and translate values
             var scale = 4;
             var translate = [width / 2 - scale * targetPixel[0], height / 2 - scale * targetPixel[1]];
-
-            // Apply the zoom transformation
+            //apply the zoom transformation
             svg.transition().duration(750).call(
                 zoom.transform,
                 d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
             );
         });
 
-
-    //AI was used to generate this list to save time from doing it manually.
+    //Code mapping function used to made 3 letter country code to 2 letter country code.
+    //AI was used to generate this list because i didnt want to type it all manually.
     const countryCodeMapping = {
         "AFG": "af",
         "ALB": "al",

@@ -13,13 +13,14 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <!--script for js-->
     <script src="vis1.js"></script>
-
+    <!--css style sheet-->
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 
 <body>
+    <!--Nave Bar-->
     <header>
         <h1>Data Visualization Assignment</h1>
         <nav class="topnav" id="myTopnav">
@@ -28,7 +29,7 @@
             <a href="vis2.html">Visualization 2</a>
         </nav>
     </header>
-
+    <!--Instruction on how to use Vis-->
     <div class="contentBOX">
         <h2>How to Use the Visualization</h2>
         <p>Pinch to Zoom in/out. Hold left click and drag to pan the map. Click the 'Reset Zoom' button to reset the
@@ -38,36 +39,45 @@
             coloured grey are either non-OECD countries of have no data for the selected year.</br><strong>This
                 visualisation only includes OECD countries.</strong></p>
     </div>
+    <!--container for all Vis elements-->
     <div id="container">
-
+        <!--Box to display clicked country-->
         <div id="clicked-box">
             <div class="flag-container" id="flag2-container"></div>
             <div id="clicked-country">Click on a country to see its data here</div>
         </div>
+        <!--Box to show country being hovered-->
         <div id="info-box">
             <div class="flag-container" id="flag1-container"></div>
             <div id="hovered-country">Hover over a country to see its data</div>
         </div>
+        <!--Container for map elements-->
         <div id="map-container">
+            <!--div for filtering tools-->
             <div id="buttons1">
+                <!--EU and reset zoom buttons-->
+                <!--Button design from https://getcssscan.com/css-buttons-examples-->
                 <button class="button-79" role="button" id="eu-button">Europe</button>
                 <button class="button-79" role="button" id="reset-button">Reset Zoom</button>
+                <!--drop down menu to select dataset-->
                 <select class="selector1" id="dataset-select">
                     <option value="life_expectancy">Life Expectancy</option>
                     <option value="population">Population</option>
                     <option value="gdp">GDP</option>
                     <option value="deaths">Deaths</option>
                 </select>
+                <!--drop down menu to select year-->
                 <select class="selector2" id="year-select">
                     <option value="2010">2010</option>
                     <option value="2015">2015</option>
                     <option value="2020">2020</option>
                 </select>
             </div>
-
+            <!--choropleth where svg will be attatched-->
             <div id="choropleth"></div>
         </div>
     </div>
+    <!--additional info based on vis-->
     <div class="additional-info">
         <p><strong>Additional Insights and Conclusions</strong>
             </br></br>
@@ -98,7 +108,7 @@
     </div>
 
     <br>
-
+    <!--Footer-->
     <footer style="color:grey">COS30045 Data Visualisation<br>
         Henry Sutton | Gagandeep Singh</footer>
 </body>

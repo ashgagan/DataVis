@@ -140,7 +140,9 @@ footer {
     margin-left: 10px;
     margin-right: 5px;
 }
-
+/* Button design from https://getcssscan.com/css-buttons-examples 
+    Button design 79 used for EU zoom and Reset
+*/
 .button-79 {
     backface-visibility: hidden;
     background: #332cf2;
