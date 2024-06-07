@@ -25,9 +25,9 @@
         <div class="header-content">
             <h1>Global Health Insights</h1>
             <nav class="topnav" id="myTopnav">
-                <a href="index.html" >Home</a>
+                <a href="index.html">Home</a>
                 <a href="vis1.html" class="active">Visualization 1</a>
-                <a href="vis2.html" >Visualization 2</a>
+                <a href="vis2.html">Visualization 2</a>
             </nav>
         </div>
     </header>
@@ -61,19 +61,21 @@
                 <!--Button design from https://getcssscan.com/css-buttons-examples-->
                 <button class="button-79" role="button" id="eu-button">Europe</button>
                 <button class="button-79" role="button" id="reset-button">Reset Zoom</button>
-                <!--drop down menu to select dataset-->
-                <select class="selector1" id="dataset-select">
-                    <option value="life_expectancy">Life Expectancy</option>
-                    <option value="population">Population</option>
-                    <option value="gdp">GDP</option>
-                    <option value="deaths">Deaths</option>
-                </select>
-                <!--drop down menu to select year-->
-                <select class="selector2" id="year-select">
-                    <option value="2010">2010</option>
-                    <option value="2015">2015</option>
-                    <option value="2020">2020</option>
-                </select>
+                <div class="dropdowns">
+                    <!--drop down menu to select dataset-->
+                    <select class="selector1" id="dataset-select">
+                        <option value="life_expectancy">Life Expectancy</option>
+                        <option value="population">Population</option>
+                        <option value="gdp">GDP</option>
+                        <option value="deaths">Deaths</option>
+                    </select>
+                    <!--drop down menu to select year-->
+                    <select class="selector2" id="year-select">
+                        <option value="2010">2010</option>
+                        <option value="2015">2015</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
             </div>
             <!--choropleth where svg will be attatched-->
             <div id="choropleth"></div>

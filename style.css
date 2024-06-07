@@ -108,6 +108,7 @@ footer {
 #info-box,
 #map-container {
     border: 1.5px solid #2C3E50;
+    border-radius: 5px;
     padding: 10px;
     background: #fff;
 }
@@ -115,6 +116,22 @@ footer {
 #clicked-box,
 #info-box {
     width: 200px;
+}
+
+.dropdowns {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.dropdowns label {
+    font-weight: bold;
+}
+
+.dropdowns select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 #map-container {
@@ -169,6 +186,7 @@ footer {
     -webkit-user-select: none;
     touch-action: manipulation;
     padding: 5px;
+    margin-top: 5px;
 }
 
 .button-79:disabled {
